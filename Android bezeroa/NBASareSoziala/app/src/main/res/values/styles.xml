@@ -1,0 +1,80 @@
+<resources>
+
+    <style name="AppThemePrincipal" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/tema0Primary</item>
+        <item name="colorPrimaryDark">@color/tema0PrimaryDark</item>
+        <item name="colorAccent">@color/tema0Accent</item>
+
+        <item name="fondo1">@color/tema0fondo1</item>
+        <item name="fondo2">@color/tema0fondo2</item>
+        <item name="fondo3">@color/tema0fondo3</item>
+        <item name="fondo4">@color/tema0fondo4</item>
+        <item name="fondo5">@color/tema0fondo5</item>
+
+        <item name="borde1">@color/tema0borde1</item>
+        <item name="borde2">@color/tema0borde2</item>
+
+        <item name="letras1">@color/tema0letras1</item>
+        <item name="letras2">@color/tema0letras2</item>
+        <item name="letras3">@color/tema0letras3</item>
+    </style>
+    <style name="AppThemePrincipal.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppThemePrincipal.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppThemePrincipal.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppThemeAzulOscuro" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/tema1Primary</item>
+        <item name="colorPrimaryDark">@color/tema1PrimaryDark</item>
+        <item name="colorAccent">@color/tema1Accent</item>
+
+        <item name="fondo1">@color/tema1fondo1</item>
+        <item name="fondo2">@color/tema1fondo2</item>
+        <item name="fondo3">@color/tema1fondo3</item>
+        <item name="fondo4">@color/tema1fondo4</item>
+        <item name="fondo5">@color/tema1fondo5</item>
+
+        <item name="borde1">@color/tema1borde1</item>
+        <item name="borde2">@color/tema1borde2</item>
+
+        <item name="letras1">@color/tema1letras1</item>
+        <item name="letras2">@color/tema1letras2</item>
+        <item name="letras3">@color/tema1letras3</item>
+    </style>
+    <style name="AppThemeAzulOscuro.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppThemeAzulOscuro.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppThemeAzulOscuro.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppThemeClaro" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/tema2Primary</item>
+        <item name="colorPrimaryDark">@color/tema2PrimaryDark</item>
+        <item name="colorAccent">@color/tema2Accent</item>
+
+        <item name="fondo1">@color/tema2fondo1</item>
+        <item name="fondo2">@color/tema2fondo2</item>
+        <item name="fondo3">@color/tema2fondo3</item>
+        <item name="fondo4">@color/tema2fondo4</item>
+        <item name="fondo5">@color/tema2fondo5</item>
+
+        <item name="borde1">@color/tema2borde1</item>
+        <item name="borde2">@color/tema2borde2</item>
+
+        <item name="letras1">@color/tema2letras1</item>
+        <item name="letras2">@color/tema2letras2</item>
+        <item name="letras3">@color/tema2letras3</item>
+    </style>
+    <style name="AppThemeClaro.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppThemeClaro.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppThemeClaro.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

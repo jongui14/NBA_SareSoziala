@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Mezua" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="mezua">
+        <id name="idMezua" type="java.lang.Integer">
+            <column name="idMezua"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="domain.Erabiltzailea" lazy="false" embed-xml="true" fetch="select" insert="true" name="erabiltzailea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idErabiltzailea"/>
+        </many-to-one>
+        <many-to-one class="domain.Komunitatea" lazy="false" embed-xml="true" fetch="select" insert="true" name="komunitatea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idKomunitatea"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="eguna" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="eguna"/>
+        </property>
+        <property generated="never" lazy="false" name="ezabagarria" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="ezabagarria"/>
+        </property>
+        <property generated="never" lazy="false" name="mezua" optimistic-lock="true" type="string" unique="false">
+            <column name="mezua"/>
+        </property>
+    </class>
+</hibernate-mapping>

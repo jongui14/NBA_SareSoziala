@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Erabiltzailea" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="erabiltzailea">
+        <id name="idErabiltzailea" type="java.lang.Integer">
+            <column name="idErabiltzailea"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="domain.Komunitatea" lazy="false" embed-xml="true" fetch="select" insert="true" name="komunitatea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idKomunitatea"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nick" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="nick" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="email" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="pasahitza" optimistic-lock="true" type="string" unique="false">
+            <column name="pasahitza" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="izenOsoa" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="izen_osoa" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dirua" optimistic-lock="true" type="int" unique="false">
+            <column name="dirua" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="administratzailea" optimistic-lock="true" type="boolean" unique="false">
+            <column name="administratzailea" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hizkuntza" optimistic-lock="true" type="string" unique="false">
+            <column length="3" name="hizkuntza" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="koloreak" optimistic-lock="true" type="int" unique="false">
+            <column name="koloreak" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="orduDiferentzia" optimistic-lock="true" type="int" unique="false">
+            <column name="ordu_diferentzia" not-null="true"/>
+        </property>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="eskaintzas" optimistic-lock="true" sort="unsorted" table="eskaintza">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea" not-null="true"/>
+            </key>
+            <one-to-many class="domain.Eskaintza" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="false" cascade="delete" fetch="select" inverse="false" mutable="true" name="jokalarias" optimistic-lock="true" sort="unsorted" table="erabiltzailearen_jokalaria">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="domain.Jokalaria" not-found="exception" unique="false">
+                <column name="idJokalaria" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="puntuazioaErabiltzaileaJardunaldias" optimistic-lock="true" sort="unsorted" table="puntuazioa_erabiltzailea_jardunaldia">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea" not-null="true"/>
+            </key>
+            <one-to-many class="domain.PuntuazioaErabiltzaileaJardunaldia" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="merkatukoJokalariasForIdErabiltzaileaIrabazlea" optimistic-lock="true" sort="unsorted" table="merkatuko_jokalaria">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea_Irabazlea" not-null="true"/>
+            </key>
+            <one-to-many class="domain.MerkatukoJokalaria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="merkatukoJokalariasForIdErabiltzaileaJabea" optimistic-lock="true" sort="unsorted" table="merkatuko_jokalaria">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea_Jabea" not-null="true"/>
+            </key>
+            <one-to-many class="domain.MerkatukoJokalaria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="mezuas" optimistic-lock="true" sort="unsorted" table="mezua">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea"/>
+            </key>
+            <one-to-many class="domain.Mezua" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="transakzioas" optimistic-lock="true" sort="unsorted" table="transakzioa">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea"/>
+            </key>
+            <one-to-many class="domain.Transakzioa" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="alineazioas" optimistic-lock="true" sort="unsorted" table="alineazioa">
+            <key on-delete="noaction">
+                <column name="idErabiltzailea" not-null="true"/>
+            </key>
+            <one-to-many class="domain.Alineazioa" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

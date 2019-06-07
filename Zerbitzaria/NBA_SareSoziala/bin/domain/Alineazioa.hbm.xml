@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Alineazioa" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="alineazioa">
+        <composite-id class="domain.AlineazioaId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="idErabiltzailea" type="int">
+                <column name="idErabiltzailea"/>
+            </key-property>
+            <key-property name="mota" type="int">
+                <column name="mota"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="domain.Erabiltzailea" lazy="false" embed-xml="true" fetch="select" insert="false" name="erabiltzailea" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="idErabiltzailea" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="domain.Jokalaria" lazy="false" embed-xml="true" fetch="select" insert="true" name="jokalariaByIdJokalaria5" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idJokalaria5"/>
+        </many-to-one>
+        <many-to-one class="domain.Jokalaria" lazy="false" embed-xml="true" fetch="select" insert="true" name="jokalariaByIdJokalaria4" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idJokalaria4"/>
+        </many-to-one>
+        <many-to-one class="domain.Jokalaria" lazy="false" embed-xml="true" fetch="select" insert="true" name="jokalariaByIdJokalaria3" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idJokalaria3"/>
+        </many-to-one>
+        <many-to-one class="domain.Jokalaria" lazy="false" embed-xml="true" fetch="select" insert="true" name="jokalariaByIdJokalaria2" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idJokalaria2"/>
+        </many-to-one>
+        <many-to-one class="domain.Jokalaria" lazy="false" embed-xml="true" fetch="select" insert="true" name="jokalariaByIdJokalaria1" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idJokalaria1"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="egunda" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="egunda"/>
+        </property>
+    </class>
+</hibernate-mapping>

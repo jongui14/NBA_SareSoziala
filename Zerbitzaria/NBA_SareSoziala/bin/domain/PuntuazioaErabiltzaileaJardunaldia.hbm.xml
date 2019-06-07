@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.PuntuazioaErabiltzaileaJardunaldia" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="puntuazioa_erabiltzailea_jardunaldia">
+        <composite-id class="domain.PuntuazioaErabiltzaileaJardunaldiaId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="idErabiltzailea" type="int">
+                <column name="idErabiltzailea"/>
+            </key-property>
+            <key-property name="idJardunaldia" type="int">
+                <column name="idJardunaldia"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="domain.Erabiltzailea" embed-xml="true" fetch="select" insert="false" name="erabiltzailea" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="idErabiltzailea" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="domain.Jardunaldia" embed-xml="true" fetch="select" insert="false" name="jardunaldia" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="idJardunaldia" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="puntuak" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="puntuak"/>
+        </property>
+    </class>
+</hibernate-mapping>

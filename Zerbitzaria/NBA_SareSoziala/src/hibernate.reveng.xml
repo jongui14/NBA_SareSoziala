@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="alineazioa"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="erabiltzailea"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="erabiltzailearen_jokalaria"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="eskaintza"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="jardunaldia"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="jokalaria"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="komunitatea"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="merkatuko_jokalaria"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="mezua"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="puntuazioa_erabiltzailea_jardunaldia"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="puntuazioa_jokalaria_jardunaldia"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="taldea"/>
+  <table-filter match-catalog="nba_liga_saresoziala" match-name="transakzioa"/>
+</hibernate-reverse-engineering>

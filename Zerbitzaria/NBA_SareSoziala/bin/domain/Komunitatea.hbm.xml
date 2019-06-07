@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Komunitatea" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="komunitatea">
+        <id name="idKomunitatea" type="java.lang.Integer">
+            <column name="idKomunitatea"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="nick" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="nick" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="izenOsoa" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="izen_osoa"/>
+        </property>
+        <property generated="never" lazy="false" name="pasahitza" optimistic-lock="true" type="string" unique="false">
+            <column name="pasahitza"/>
+        </property>
+        <property generated="never" lazy="false" name="ongietorriMezua" optimistic-lock="true" type="string" unique="false">
+            <column name="ongietorri_mezua"/>
+        </property>
+        <property generated="never" lazy="false" name="saria1" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="saria1"/>
+        </property>
+        <property generated="never" lazy="false" name="saria2" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="saria2"/>
+        </property>
+        <property generated="never" lazy="false" name="saria3" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="saria3"/>
+        </property>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="erabiltzaileas" optimistic-lock="true" sort="unsorted" table="erabiltzailea">
+            <key on-delete="noaction">
+                <column name="idKomunitatea"/>
+            </key>
+            <one-to-many class="domain.Erabiltzailea" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="merkatukoJokalarias" optimistic-lock="true" sort="unsorted" table="merkatuko_jokalaria">
+            <key on-delete="noaction">
+                <column name="idKomunitatea" not-null="true"/>
+            </key>
+            <one-to-many class="domain.MerkatukoJokalaria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="mezuas" optimistic-lock="true" sort="unsorted" table="mezua">
+            <key on-delete="noaction">
+                <column name="idKomunitatea"/>
+            </key>
+            <one-to-many class="domain.Mezua" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

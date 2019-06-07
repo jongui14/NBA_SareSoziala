@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.MerkatukoJokalaria" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="merkatuko_jokalaria">
+        <id name="idMerkatukoJokalaria" type="java.lang.Integer">
+            <column name="idMerkatuko_Jokalaria"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="domain.Erabiltzailea" lazy="false" embed-xml="true" fetch="select" insert="true" name="erabiltzaileaByIdErabiltzaileaIrabazlea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idErabiltzailea_Irabazlea" not-null="false"/>
+        </many-to-one>
+        <many-to-one class="domain.Erabiltzailea" lazy="false" embed-xml="true" fetch="select" insert="true" name="erabiltzaileaByIdErabiltzaileaJabea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idErabiltzailea_Jabea" not-null="false"/>
+        </many-to-one>
+        <many-to-one class="domain.Jokalaria" lazy="false" embed-xml="true" fetch="select" insert="true" name="jokalaria" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idJokalaria" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="domain.Komunitatea" lazy="false" embed-xml="true" fetch="select" insert="true" name="komunitatea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idKomunitatea" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hasierakoPrezioa" optimistic-lock="true" type="int" unique="false">
+            <column name="hasierako_prezioa" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="eskaintzaIrabazlea" optimistic-lock="true" type="int" unique="false">
+            <column name="eskaintza_irabazlea" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="onartua" optimistic-lock="true" type="boolean" unique="false">
+            <column name="onartua" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="tramitatua" optimistic-lock="true" type="boolean" unique="false">
+            <column name="tramitatua" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="tramitazioEguna" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="tramitazio_eguna" not-null="true"/>
+        </property>
+        <set embed-xml="true" lazy="false" cascade="delete" fetch="select" inverse="true" mutable="true" name="eskaintzas" optimistic-lock="true" sort="unsorted" table="eskaintza">
+            <key on-delete="noaction">
+                <column name="idMerkatuko_Jokalaria" not-null="true"/>
+            </key>
+            <one-to-many class="domain.Eskaintza" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

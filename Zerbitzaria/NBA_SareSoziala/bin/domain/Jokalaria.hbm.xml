@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Jokalaria" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="jokalaria">
+        <id name="idJokalaria" type="int">
+            <column name="idJokalaria"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="domain.Taldea" embed-xml="true" fetch="select" insert="true" name="taldeaByIdTaldea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idTaldea"/>
+        </many-to-one>
+        <many-to-one class="domain.Taldea" embed-xml="true" fetch="select" insert="true" name="taldeaByDraftIdTaldea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="draft_id_taldea"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="izena" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="izena"/>
+        </property>
+        <property generated="never" lazy="false" name="abizena" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="abizena"/>
+        </property>
+        <property generated="never" lazy="false" name="dortsala" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="dortsala"/>
+        </property>
+        <property generated="never" lazy="false" name="posizioa" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="posizioa"/>
+        </property>
+        <property generated="never" lazy="false" name="altuera" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="altuera" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="pisua" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="pisua" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="jaiotzeData" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="jaiotze_data"/>
+        </property>
+        <property generated="never" lazy="false" name="nazionalitatea" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="nazionalitatea"/>
+        </property>
+        <property generated="never" lazy="false" name="draftUrtea" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="draft_urtea"/>
+        </property>
+        <property generated="never" lazy="false" name="draftPostua" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="draft_postua"/>
+        </property>
+        <property generated="never" lazy="false" name="unibertsitatea" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="unibertsitatea"/>
+        </property>
+        <property generated="never" lazy="false" name="nbaDebutUrtea" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="nba_debut_urtea"/>
+        </property>
+        <property generated="never" lazy="false" name="nbaUrteak" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="nba_urteak"/>
+        </property>
+        <property generated="never" lazy="false" name="soldata" optimistic-lock="true" type="int" unique="false">
+            <column name="soldata" not-null="true"/>
+        </property>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="puntuazioaJokalariaJardunaldias" optimistic-lock="true" sort="unsorted" table="puntuazioa_jokalaria_jardunaldia">
+            <key on-delete="noaction">
+                <column name="idJokalaria" not-null="true"/>
+            </key>
+            <one-to-many class="domain.PuntuazioaJokalariaJardunaldia" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="erabiltzaileas" optimistic-lock="true" sort="unsorted" table="erabiltzailearen_jokalaria">
+            <key on-delete="noaction">
+                <column name="idJokalaria" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="domain.Erabiltzailea" not-found="exception" unique="false">
+                <column name="idErabiltzailea" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="alineazioasForIdJokalaria5" optimistic-lock="true" sort="unsorted" table="alineazioa">
+            <key on-delete="noaction">
+                <column name="idJokalaria5"/>
+            </key>
+            <one-to-many class="domain.Alineazioa" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="alineazioasForIdJokalaria4" optimistic-lock="true" sort="unsorted" table="alineazioa">
+            <key on-delete="noaction">
+                <column name="idJokalaria4"/>
+            </key>
+            <one-to-many class="domain.Alineazioa" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="alineazioasForIdJokalaria3" optimistic-lock="true" sort="unsorted" table="alineazioa">
+            <key on-delete="noaction">
+                <column name="idJokalaria3"/>
+            </key>
+            <one-to-many class="domain.Alineazioa" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="alineazioasForIdJokalaria2" optimistic-lock="true" sort="unsorted" table="alineazioa">
+            <key on-delete="noaction">
+                <column name="idJokalaria2"/>
+            </key>
+            <one-to-many class="domain.Alineazioa" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="merkatukoJokalarias" optimistic-lock="true" sort="unsorted" table="merkatuko_jokalaria">
+            <key on-delete="noaction">
+                <column name="idJokalaria" not-null="true"/>
+            </key>
+            <one-to-many class="domain.MerkatukoJokalaria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="alineazioasForIdJokalaria1" optimistic-lock="true" sort="unsorted" table="alineazioa">
+            <key on-delete="noaction">
+                <column name="idJokalaria1"/>
+            </key>
+            <one-to-many class="domain.Alineazioa" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,81 @@
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	   <div class="container">
+		  <a class="navbar-brand" href="./index.php"><b>NBAko sare-soziala</b></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			 <ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Jokalariak</a>
+					<div class="dropdown-menu">
+					  <a class="dropdown-item" href="./jokalariak_alineazioa.php">Alineazioa</a>
+					  <a class="dropdown-item" href="./jokalariak_nire_jokalariak.php">Nire jokalariak</a>
+					  <a class="dropdown-item" href="./jokalariak.php">Jokalariak</a>
+					  <a class="dropdown-item" href="./taldeak.php">Taldeak</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Merkatua</a>
+					<div class="dropdown-menu">
+					  <a class="dropdown-item" href="./merkatua_merkatua_kontsultatu.php">Merkatua kontsultatu</a>
+					  <a class="dropdown-item" href="./merkatua_nire_jokalariak.php">Nire jokalariak merkatuan jarri</a>
+					  <a class="dropdown-item" href="./merkatua_egindako_eskaintzak.php">Egindako eskaintzak</a>
+					  <a class="dropdown-item" href="./merkatua_jasotako_eskaintzak.php">Jasotako eskaintzak</a>
+					</div>
+				</li>
+				<?php
+					if($erabiltzaile->administratzailea==true){
+						echo 	'<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Finantzak</a>
+									<div class="dropdown-menu">
+									  <a class="dropdown-item" href="./finantzak_transakzioak.php">Transakzioak</a>
+									  <a class="dropdown-item" href="./finantzak_jornadako_sariak_aldatu.php">Jornadako sariak aldatu</a>
+									</div>
+								</li>';
+					}else{
+						echo 	'<li class="nav-item">
+								   <a class="nav-link" href="./finantzak_transakzioak.php">Finantzak</a>
+								</li>';
+					}
+				?>
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Klasifikazioa</a>
+					<div class="dropdown-menu">
+					  <a class="dropdown-item" href="./klasifikazioa_azken_klasifikazioa.php">Azken klasifikazioa</a>
+					  <a class="dropdown-item" href="./klasifikazioa_klasifikazio_generala.php">Klasifikazio generala</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Estadistikak</a>
+					<div class="dropdown-menu">
+					  <a class="dropdown-item" href="./estadistikak_jokalari_guztiak.php">Jokalari guztien puntuak</a>
+					  <a class="dropdown-item" href="./estadistikak_jokalari_bakarra.php">Jokalari bakarraren eboluzioa</a>
+					</div>
+				</li>
+				<?php
+					if($erabiltzaile->administratzailea==true){
+						echo 	'<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Komunitatea</a>
+									<div class="dropdown-menu">
+									  <a class="dropdown-item" href="./komunitatea.php">Komunitatea</a>
+									  <a class="dropdown-item" href="./erabiltzaileak_ezabatu.php">Erabiltzaileak ezabatu aldatu</a>
+									</div>
+								</li>';
+					}else{
+						echo 	'<li class="nav-item">
+								   <a class="nav-link" href="./komunitatea.php">Komunitatea</a>
+								</li>';
+					}
+				?>
+				<li class="nav-item">
+					<a class="nav-link" href="./alineazio_publikoak.php">Alineazio publikoak</a>
+				</li>
+			 </ul>
+			 <a class="btn btn-outline-info d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="../php/erabiltzailea_sesioa_itxi.php">Saioa Itxi</a>
+		  </div>
+	   </div>
+	</nav>
+

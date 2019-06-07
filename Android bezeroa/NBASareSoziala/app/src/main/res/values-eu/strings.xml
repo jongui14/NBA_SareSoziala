@@ -1,0 +1,163 @@
+<resources>
+    <string name="app_name">NBA SareSoziala</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!-- logeatu-gabea menu-->
+    <string name="partiduen_emaitzak">Partiduen emaitzak</string>
+    <string name="jokalariak">Jokalariak</string>
+    <string name="taldeak">Taldeak</string>
+    <string name="alineazio_publikoak">Alineazio publikoak</string>
+    <string name="kontua">Kontua</string>
+    <string name="komunitate_berria">Komunitate berria</string>
+    <string name="erabiltzaile_berria">Erabiltzaile berria</string>
+    <string name="kontura_sartu">Kontura sartu</string>
+    <string name="aukerak">Aukerak</string>
+
+    <!--logeatua menua-->
+    <string name="alineazioa">Alineazioa</string>
+    <string name="nire_jokalariak">Nire jokalariak</string>
+    <string name="merkatua">Merkatua</string>
+    <string name="merkatua_kontsultatu">Merkatua kontsultatu</string>
+    <string name="jokalariak_merkatuan_jarri">Jokalariak merkatuan jarri</string>
+    <string name="finantzak">Finantzak</string>
+    <string name="klasifikazioa">Klasifikazioa</string>
+    <string name="azken_klasifikazioa">Azken klasifikazioa</string>
+    <string name="klasifikazio_generala">Klasifikazio generala</string>
+    <string name="estadistikak">Estadistikak</string>
+    <string name="jokalari_guztien_puntuak">Jokalari guztien puntuak</string>
+    <string name="jokalari_bakarraren_eboluzioa">Jokalari bakarraren eboluzioa</string>
+    <string name="komunitatea">Komunitatea</string>
+    <string name="sariak_aldatu">Sariak Aldatu</string>
+    <string name="erabiltzaileak_ezabatu">Erabiltzaileak ezabatu</string>
+    <string name="sesioa_itxi">Sesioa itxi</string>
+
+    <!-- kontua-->
+    <string name="erabiltzaile_nick">Erabiltzaile nick-a</string>
+    <string name="pasahitza">Pasahitza</string>
+    <string name="logeatu">Logeatu</string>
+    <string name="pasahitza_ahaztu_duzu">Pasahitza ahaztu duzu? Klik hemen</string>
+    <string name="komunitate_nick">Komunitateko nick-a</string>
+    <string name="komunitate_pasahitza">Komunitateko pasahitza</string>
+    <string name="izen_osoa">Izen osoa</string>
+    <string name="email">Email</string>
+    <string name="pasahitza_errepiktatu">Pasahitza errepiktatu</string>
+    <string name="ongietorri_mezua">Ongietorri mezua</string>
+    <string name="saria1">Saria 1</string>
+    <string name="saria2">Saria 2</string>
+    <string name="saria3">Saria 3</string>
+    <string name="komunitatea_sortu">Komunitatea sortu</string>
+    <string name="erabiltzailea_sortu">Erabiltzailea sortu</string>
+    <string name="komunitatea_aukeratu">Komunitatea aukeratu</string>
+    <string name="kargatzen">Kargatzen</string>
+
+    <!-- jokalariak-->
+    <string name="soldata">Soldata</string>
+    <string name="altuera">Altuera</string>
+    <string name="pisua">Pisua</string>
+    <string name="jaiotze_data">Jaiotze-data</string>
+    <string name="nazionalitatea">Nazionalitatea</string>
+    <string name="posizioa">Posizioa</string>
+    <string name="gorde">Gorde</string>
+    <string name="publikatu">Publikatu</string>
+    <string name="alineazioa_egoki_gorde_da">Alineazioa egoki gorde da!</string>
+    <string name="errorea_alineazioa_gordetzean">Errorea gertatu da alineazioa gordetzean!</string>
+    <string name="alineazioa_egoki_publikatu_da">Alineazioa egoki publikatu da!</string>
+    <string name="errorea_alineazioa_publikatzean">Errorea gertatu da alineazioa publikatzean!</string>
+    <string name="jokalariaren_izena">Jokalariaren izena...</string>
+
+    <!-- merkatua-->
+    <string name="merkatuan_jarri">Merkatuan jarri</string>
+    <string name="merkatuko_prezioa">Merkatuko prezioa</string>
+    <string name="jokalaria_merkatuan_jarri_da">Jokalaria merkatuan jarri da!</string>
+    <string name="errorea_jokalaria_merkatuan_jartzean">Errorea gertatu da jokalaria merkatuan jartzean!</string>
+    <string name="oferta_egin">Oferta egin</string>
+    <string name="ofertaren_balioa">Ofertaren balioa</string>
+    <string name="oferta_ondo_egin_da">Oferta ondo egin da!</string>
+    <string name="errorea_oferta_egitean">Errorea oferta egitean!</string>
+    <string name="egindako_eskaintzak">Egindako eskaintzak</string>
+    <string name="jasotako_eskaintzak">Jasotako eskaintzak</string>
+    <string name="tramitatuak">Tramitatuak</string>
+    <string name="tramitatu_gabeak">Tramitatu gabeak</string>
+    <string name="onartu">Onartu</string>
+    <string name="ezeztatu">Ezeztatu</string>
+    <string name="oferta_ondo_onartu_da">Oferta ondo onartu da!</string>
+    <string name="errorea_oferta_onartzean">Errorea oferta onartzean!</string>
+    <string name="oferta_ondo_ezeztatu_da">Oferta ondo ezeztatu da!</string>
+    <string name="errorea_oferta_ezeztatzean">Errorea oferta ezeztatzean!</string>
+    <string name="ezin_duzu_horrelako_oferta_egin">Ezin duzu horrelako oferta bat egin!</string>
+
+    <!-- komunitatea -->
+    <string name="dirua">Dirua</string>
+    <string name="bidali">Bidali</string>
+    <string name="mezuaren_textua">Mezuaren textua...</string>
+    <string name="mezua_ondo_bidali_da">Mezua ondo bidali da!</string>
+    <string name="errorea_mezua_bidaltzean">Errorea mezua bidaltzean!</string>
+    <string name="errorea_komunitatea_aukeratzean">Errorea komunitatea aukeratzean!</string>
+    <string name="errorea_kontura_sartzean">Errorea kontuan sartzean!</string>
+    <string name="errorea_erabiltzaile_berria">Errorea erabiltzaile berria sortzean!</string>
+    <string name="errorea_komunitate_berria">Errorea komunitate berria sortzean!</string>
+    <string name="erabiltzailea_ondo_ezabatu_da">Erabiltzailea ondo ezabatu da!</string>
+    <string name="errorea_erabiltzailea_ezabatzean">Errorea erabiltzailea ezabatzean!</string>
+    <string name="mezua_ondo_ezabatu_da">Mezua ondo ezabatu da!</string>
+    <string name="errorea_mezua_ezabatzean">Errorea mezua ezabatzean!</string>
+    <string name="mezua_ezabatu">Mezua ezabatu</string>
+    <string name="sariak_ondo_aldatu_dira">Sariak ondo aldatu dira!</string>
+    <string name="ezin_izan_dira_sariak_aldatu">Ezin izan dira sariak aldatu!</string>
+
+    <!-- transakzio izenak-->
+    <string name="ongietorri_bonusa">Ongietorri bonusa</string>
+    <string name="jornadako_saria1">Jardunaldian 1. postua lortzeagatik</string>
+    <string name="jornadako_saria2">Jardunaldian 2. postua lortzeagatik</string>
+    <string name="jornadako_saria3">Jardunaldian 3. postua lortzeagatik</string>
+    <string name="jokalaria_erosi">Jokalaria erosi</string>
+    <string name="jokalaria_saldu">Jokalaria saldu</string>
+
+
+    <!-- aukerak -->
+    <string name="hizkuntza_aukeratu">Hizkuntza aukeratu</string>
+    <string name="euskera">Euskera</string>
+    <string name="gaztelera">Gaztelera</string>
+    <string name="ingelesa">Ingelesa</string>
+    <string name="ordutegia_aukeratu">Ordutegia aukeratu</string>
+    <string name="modo_dia">Eguneko modua</string>
+    <string name="modo_noche">Gaueko modua</string>
+    <string name="horario_usa">USA ordutegia</string>
+    <string name="horario_españa">España ordutegia</string>
+    <string name="horario_argentina">Argentina ordutegia</string>
+    <string name="horario_mexico">Mexico ordutegia</string>
+    <string name="detectar_automaticamente">Automatikoki detektatu</string>
+
+    <!-- posizioak -->
+    <string name="base">Antolatzailea</string>
+    <string name="eskolta">Eskolta</string>
+    <string name="alero">Pisua</string>
+    <string name="ala_pivot">Hegal pibot</string>
+    <string name="pivot">Pibota</string>
+
+    <!-- egutegia-->
+    <string name="astelehena">Astelehena</string>
+    <string name="asteartea">Asteartea</string>
+    <string name="asteazkena">Asteazkena</string>
+    <string name="osteguna">Osteguna</string>
+    <string name="ostirala">Ostirala</string>
+    <string name="larunbata">Larunbata</string>
+    <string name="igandea">Igandea</string>
+
+    <string name="urtarrila">Urtarrila</string>
+    <string name="otsaila">Otsaila</string>
+    <string name="martxoa">Martxoa</string>
+    <string name="apirila">Apirila</string>
+    <string name="maiatza">Maiatza</string>
+    <string name="ekaina">Ekaina</string>
+    <string name="uztaila">Uztaila</string>
+    <string name="abuztua">Abuztua</string>
+    <string name="iraila">Iraila</string>
+    <string name="urria">Urria</string>
+    <string name="azaroa">Azaroa</string>
+    <string name="abendua">Abendua</string>
+
+
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_partiduen_emaitzak"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/partiduen_emaitzak" />
+        <item
+            android:id="@+id/nav_alineazio_publikoak"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/alineazio_publikoak" />
+    </group>
+
+    <item android:title="@string/jokalariak">
+        <menu>
+            <item
+                android:id="@+id/nav_alineazioa"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/alineazioa" />
+            <item
+                android:id="@+id/nav_nire_jokalariak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/nire_jokalariak" />
+            <item
+                android:id="@+id/nav_jokalariak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/jokalariak" />
+            <item
+                android:id="@+id/nav_taldeak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/taldeak" />
+        </menu>
+    </item>
+
+    <item android:title="@string/merkatua">
+        <menu>
+            <item
+                android:id="@+id/nav_merkatua_kontsultatu"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/merkatua_kontsultatu" />
+            <item
+                android:id="@+id/nav_jokalariak_merkatuan_jarri"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/jokalariak_merkatuan_jarri" />
+            <item
+                android:id="@+id/nav_egindako_eskaintzak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/egindako_eskaintzak" />
+            <item
+                android:id="@+id/nav_jasotako_eskaintzak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/jasotako_eskaintzak" />
+        </menu>
+    </item>
+
+    <item android:title="@string/finantzak">
+        <menu>
+            <item
+                android:id="@+id/nav_finantzak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/finantzak" />
+            <item
+                android:id="@+id/nav_sariak_aldatu"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/sariak_aldatu" />
+        </menu>
+    </item>
+
+    <item android:title="@string/klasifikazioa">
+        <menu>
+            <item
+                android:id="@+id/nav_azken_klasifikazioa"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/azken_klasifikazioa" />
+            <item
+                android:id="@+id/nav_klasifikazio_generala"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/klasifikazio_generala" />
+        </menu>
+    </item>
+
+    <item android:title="@string/estadistikak">
+        <menu>
+            <item
+                android:id="@+id/nav_jokalari_guztien_puntuak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/jokalari_guztien_puntuak" />
+            <item
+                android:id="@+id/nav_jokalari_bakarraren_eboluzioa"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/jokalari_bakarraren_eboluzioa" />
+        </menu>
+    </item>
+
+    <item android:title="@string/komunitatea">
+        <menu>
+            <item
+                android:id="@+id/nav_komunitatea"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/komunitatea" />
+            <item
+                android:id="@+id/nav_erabiltzaileak_ezabatu"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/erabiltzaileak_ezabatu" />
+            <item
+                android:id="@+id/nav_sesioa_itxi"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/sesioa_itxi" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_aukerak"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="@string/aukerak" />
+</menu>

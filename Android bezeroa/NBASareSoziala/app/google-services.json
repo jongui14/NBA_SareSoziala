@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "76358722129",
+    "firebase_url": "https://nba-sare-soziala.firebaseio.com",
+    "project_id": "nba-sare-soziala",
+    "storage_bucket": "nba-sare-soziala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76358722129:android:e01eac3502c8156e",
+        "android_client_info": {
+          "package_name": "com.jgr14.nbasaresoziala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76358722129-1bssfa9608lb82aoq2fbg6n4djf9jm0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jgr14.nbasaresoziala",
+            "certificate_hash": "eb6a0322c9c087069c1f978ddae9411fff4df724"
+          }
+        },
+        {
+          "client_id": "76358722129-930vruc65vfr4mcdfd920k56bb17fqi0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVH8Fp8euN77em8QEQXul5hYyHMb5N5Us"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76358722129-930vruc65vfr4mcdfd920k56bb17fqi0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+<script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
+	
+<script type="text/javascript">
+function jokalariak_eguneratu(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_jokalariak_eguneratu.php", true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+function taldeak_eguneratu(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_taldeak_eguneratu.php", true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+function soldatak_eguneratu(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_soldatak_eguneratu.php", true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+function mezua_bidali(){
+	var mezua=document.getElementById("mezuaren_edukia").value;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_mezuak_bidali.php?mezua="+mezua, true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+function jardunaldiak_hasieratu(){
+	var urtea=document.getElementById("jardunaldia_urtea").value;
+	var hilabetea=document.getElementById("jardunaldia_hilabetea").value;
+	var eguna=document.getElementById("jardunaldia_eguna").value;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_jardunaldiak_hasieratu.php?urtea="+urtea+"&hilabetea="+hilabetea+"&eguna="+eguna, true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+function alineazioak_gorde(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_alineazioak_eguneratu.php", true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+function merkatuak_eguneratu(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "../php/admin_merkatuak_eguneratu.php", true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var res=this.responseText;
+			alert("ONDO!");	
+        }
+	};
+}
+</script>
+	
+</head>
+
+<body>
+<br><br>
+
+<input type='button' class="btn btn-primary btn-block btn-lg" onclick='jokalariak_eguneratu()' value='Jokalariak  eguneratu'><br><br>
+
+<input type='button' class="btn btn-primary btn-block btn-lg" onclick='soldatak_eguneratu()' value='Soldatak  eguneratu'><br><br>
+
+<input type='button' class="btn btn-primary btn-block btn-lg" onclick='taldeak_eguneratu()' value='Taldeak  eguneratu'><br><br>
+
+<input type='button' class="btn btn-primary btn-block btn-lg" onclick='alineazioak_gorde()' value='Alineazioak  eguneratu'><br><br>
+
+<input type='button' class="btn btn-primary btn-block btn-lg" onclick='merkatuak_eguneratu()' value='Merkatuak  eguneratu'><br><br>
+
+<input type='text' class="form-control" id='mezuaren_edukia' placeholder="Mezuaren edukia..."><input type='button' class="btn btn-primary btn-block btn-lg" onclick='mezua_bidali()' value='Mezua bidali'><br><br>
+
+Urtea:<input type="number" placeholder="2019" class="form-control" min="1" max="5" id='jardunaldia_urtea'>&nbsp;&nbsp;
+Hilabetea:<input type="number" placeholder="10" class="form-control" min="1" max="5" id='jardunaldia_hilabetea'>&nbsp;&nbsp;
+Eguna:<input type="number" placeholder="10" class="form-control" min="1" max="5" id='jardunaldia_eguna'>
+<input type='button' class="btn btn-primary btn-block btn-lg" onclick='jardunaldiak_hasieratu()' value='Jardunaldiak Hasieratu'><br><br>
+
+
+
+</body>
+</html>

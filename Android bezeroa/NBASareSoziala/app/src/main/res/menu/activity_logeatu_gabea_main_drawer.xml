@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_partiduen_emaitzak"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/partiduen_emaitzak" />
+        <item
+            android:id="@+id/nav_jokalariak"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/jokalariak" />
+        <item
+            android:id="@+id/nav_taldeak"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/taldeak" />
+        <item
+            android:id="@+id/nav_alineazio_publikoak"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/alineazio_publikoak" />
+    </group>
+
+    <item android:title="@string/kontua">
+        <menu>
+            <item
+                android:id="@+id/nav_komunitate_berria"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/komunitate_berria" />
+            <item
+                android:id="@+id/nav_erabiltzaile_berria"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/erabiltzaile_berria" />
+            <item
+                android:id="@+id/nav_kontura_sartu"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/kontura_sartu" />
+        </menu>
+    </item>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_aukerak"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/aukerak" />
+            <item
+                android:id="@+id/nav_ip"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="ip aldatu" />
+        </menu>
+    </item>
+
+</menu>

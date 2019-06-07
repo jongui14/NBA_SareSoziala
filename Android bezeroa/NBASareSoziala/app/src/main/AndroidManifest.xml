@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jgr14.nbasaresoziala">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemePrincipal">
+        <activity android:name=".gui.KargaActivityActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".gui.logeatu_gabea.generalak.AlineazioPublikoakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.generalak.JokalariakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.generalak.PartiduenEmaitzakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.generalak.TaldeakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.generalak.AukerakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.kontua.ErabiltzaileBerriaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.kontua.KomunitateBerriaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.kontua.KonturaSartuActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatu_gabea.kontua.KomunitateaAukeratuActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.PartiduenEmaitzakLogActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.AlineazioPublikoakLogActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.AukerakLogActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.jokalariak.NireJokalariakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.jokalariak.AlineazioaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.jokalariak.JokalariakLogActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.jokalariak.TaldeakLogActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.merkatua.JokalariaMerkatuanJarriActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.merkatua.MerkatuaKontsultatuActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.merkatua.EgindakoEskaintzakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.merkatua.JasotakoEskaintzakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.klasifikazioa.AzkenKlasifikazioaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.klasifikazioa.KlasifikazioGeneralaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.komunitatea.KomunitateaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.komunitatea.ErabiltzaileakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.estadistikak.JokalariBakarrenPuntuakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.estadistikak.JokalariGuztienPuntuakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.finantzak.FinantzakActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity
+            android:name=".gui.logeatua.komunitatea.SariakAldatuActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincipal.NoActionBar" />
+        <activity android:name=".gui.Ajustes" />
+    </application>
+
+</manifest>

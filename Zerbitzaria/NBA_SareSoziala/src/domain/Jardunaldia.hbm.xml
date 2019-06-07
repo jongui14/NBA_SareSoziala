@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Jardunaldia" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="jardunaldia">
+        <id name="idJardunaldia" type="java.lang.Integer">
+            <column name="idJardunaldia"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="hasierakoEguna" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="hasierako_eguna" unique="true"/>
+        </property>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="puntuazioaJokalariaJardunaldias" optimistic-lock="true" sort="unsorted" table="puntuazioa_jokalaria_jardunaldia">
+            <key on-delete="noaction">
+                <column name="idJardunaldia" not-null="true"/>
+            </key>
+            <one-to-many class="domain.PuntuazioaJokalariaJardunaldia" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" lazy="true" cascade="delete" fetch="select" inverse="true" mutable="true" name="puntuazioaErabiltzaileaJardunaldias" optimistic-lock="true" sort="unsorted" table="puntuazioa_erabiltzailea_jardunaldia">
+            <key on-delete="noaction">
+                <column name="idJardunaldia" not-null="true"/>
+            </key>
+            <one-to-many class="domain.PuntuazioaErabiltzaileaJardunaldia" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

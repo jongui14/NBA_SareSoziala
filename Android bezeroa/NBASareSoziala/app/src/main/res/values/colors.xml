@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="tema0Primary">#343a40</color>
+    <color name="tema0PrimaryDark">#909090</color>
+    <color name="tema0Accent">#FF4081</color>
+
+    <color name="tema0fondo1">#dee2e6</color>
+    <color name="tema0fondo2">#dee2e6</color>
+    <color name="tema0fondo3">#e9ecef</color>
+    <color name="tema0fondo4">#e9ecef</color>
+    <color name="tema0fondo5">#ffffff</color>
+
+    <color name="tema0borde1">#000000</color>
+    <color name="tema0borde2">#dee2e6</color>
+
+    <color name="tema0letras1">#000000</color>
+    <color name="tema0letras2">#111111</color>
+    <color name="tema0letras3">#222222</color>
+
+
+
+
+    <color name="tema1Primary">#141d26</color>
+    <color name="tema1PrimaryDark">#243447</color>
+    <color name="tema1Accent">#FF4081</color>
+
+    <color name="tema1fondo1">#141d26</color>
+    <color name="tema1fondo2">#1b2836</color>
+    <color name="tema1fondo3">#243447</color>
+    <color name="tema1fondo4">#293644</color>
+    <color name="tema1fondo5">#343447</color>
+
+    <color name="tema1borde1">#000000</color>
+    <color name="tema1borde2">#ffffff</color>
+
+    <color name="tema1letras1">#ffffff</color>
+    <color name="tema1letras2">#8fa1ad</color>
+    <color name="tema1letras3">#1da1f2</color>
+
+
+
+
+    <color name="tema2Primary">#000000</color>
+    <color name="tema2PrimaryDark">#909090</color>
+    <color name="tema2Accent">#ff0000</color>
+
+    <color name="tema2fondo1">#f0f0f0</color>
+    <color name="tema2fondo2">#f3f3f3</color>
+    <color name="tema2fondo3">#f5f5f5</color>
+    <color name="tema2fondo4">#fefefe</color>
+    <color name="tema2fondo5">#ffffff</color>
+
+    <color name="tema2borde1">#000000</color>
+    <color name="tema2borde2">#909090</color>
+
+    <color name="tema2letras1">#000000</color>
+    <color name="tema2letras2">#050505</color>
+    <color name="tema2letras3">#8fa1ad</color>
+
+</resources>

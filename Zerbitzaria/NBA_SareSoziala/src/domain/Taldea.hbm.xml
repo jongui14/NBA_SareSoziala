@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08-may-2019 9:56:30 by Hibernate Tools 5.4.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="false">
+    <class catalog="nba_liga_saresoziala" dynamic-insert="false" dynamic-update="false" mutable="true" name="domain.Taldea" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="taldea">
+        <id name="idTaldea" type="int">
+            <column name="idTaldea"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="hiria" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="hiria"/>
+        </property>
+        <property generated="never" lazy="false" name="apodoa" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="apodoa"/>
+        </property>
+        <property generated="never" lazy="false" name="izenOsoa" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="izen_osoa"/>
+        </property>
+        <property generated="never" lazy="false" name="konferentzia" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="konferentzia"/>
+        </property>
+        <property generated="never" lazy="false" name="urlIzena" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="url_izena"/>
+        </property>
+        <set embed-xml="true" fetch="select" cascade="delete" inverse="true" mutable="true" name="jokalariasForIdTaldea" optimistic-lock="true" sort="unsorted" table="jokalaria">
+            <key on-delete="noaction">
+                <column name="idTaldea"/>
+            </key>
+            <one-to-many class="domain.Jokalaria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" cascade="delete" inverse="true" mutable="true" name="jokalariasForDraftIdTaldea" optimistic-lock="true" sort="unsorted" table="jokalaria">
+            <key on-delete="noaction">
+                <column name="draft_id_taldea"/>
+            </key>
+            <one-to-many class="domain.Jokalaria" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
