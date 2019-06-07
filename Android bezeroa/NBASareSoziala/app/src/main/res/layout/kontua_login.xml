@@ -57,14 +57,14 @@
             android:padding="12dp"
             android:text="@string/logeatu" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
             android:text="@string/pasahitza_ahaztu_duzu"
-            android:textSize="16dip" />
+            android:textSize="16dip" />-->
 
     </LinearLayout>
 </ScrollView>
