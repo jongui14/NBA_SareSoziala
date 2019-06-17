@@ -6,7 +6,6 @@ import javax.xml.ws.Endpoint;
 import businessLogic.AdminGlobal_Implementation;
 import businessLogic.UserLogged_Implementation;
 import businessLogic.UserNotLogged_Implementation;
-import configuration.ConfigXML;
 import dataAccess.HibernateDataAccess;
 
 public class Publisher {
@@ -34,8 +33,9 @@ public class Publisher {
 		System.out.println("http://0.0.0.0:9999/userlogged?wsdl");
 		System.out.println("http://0.0.0.0:9999/admin?wsdl");
 		
-		JOptionPane.showMessageDialog(null,"Zerbitzaria martxan dago!");
-		
+		System.out.println("*************************");
+		System.out.println("Zerbitzaria martxan dago!");
+		System.out.println("*************************");
 	}
 
 }

@@ -40,7 +40,7 @@
 			echo '<tr>
 					  <th scope="row"><a href="./jokalariak.php?idJokalaria='.$jokalaria['idJokalaria'].'"><div class="text-center"><img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></a></th>
 					  <td><a href="./jokalariak.php?idJokalaria='.$jokalaria['idJokalaria'].'">'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</a></td>
-					  <td>'.$jokalaria['soldata'].'</td>
+					  <td>'.DiruaFormatuarekin($jokalaria['soldata']).'</td>
 					  <td>'.$jokalaria['posizioa'].'</td>
 					</tr>';
 		}

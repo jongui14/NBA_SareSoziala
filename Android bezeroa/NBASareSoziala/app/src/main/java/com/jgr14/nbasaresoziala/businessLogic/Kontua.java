@@ -70,7 +70,7 @@ public class Kontua {
     }
 
     public static boolean PasahitzaEgokia(String pass){
-        return true;
+        return DataAccess.PasahitzaOnargarria(pass);
     }
 
 

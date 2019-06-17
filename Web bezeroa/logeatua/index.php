@@ -15,6 +15,8 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
@@ -27,7 +29,7 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 <?php include "../datuak/menu_log.html"; ?>
 
 <?php
-    $wsdl = $usernot_wsdl;
+        $wsdl = $usernot_wsdl;
 	
 	// Require Soap
 	error_reporting(E_ERROR | E_PARSE);
@@ -75,11 +77,11 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 		'<table class="table">
 		  <thead class="thead-dark">
 			<tr>
-			  <th style="cursor:hand" onclick="window.location.href = \'./index.php?year='.$year1.'&month='.$month1.'&day='.$day1.'\';" scope="col" align="left"><center>'.$year1.'-'.$month1.'-'.$day1.'</center></th>
+			  <th style="cursor:hand" onclick="window.location.href = \'./partiduen_emaitzak.php?year='.$year1.'&month='.$month1.'&day='.$day1.'\';" scope="col" align="left"><center>'.$year1.'-'.$month1.'-'.$day1.'</center></th>
 			  <th></th>
 			  <th style="cursor:hand" scope="col"><center>'.$year.'-'.$month.'-'.$day.'</center></th>
 			  <th></th>
-			  <th style="cursor:hand" onclick="window.location.href = \'./index.php?year='.$year2.'&month='.$month2.'&day='.$day2.'\';" scope="col" align="right"><center>'.$year2.'-'.$month2.'-'.$day2.'</center></th>
+			  <th style="cursor:hand" onclick="window.location.href = \'./partiduen_emaitzak.php?year='.$year2.'&month='.$month2.'&day='.$day2.'\';" scope="col" align="right"><center>'.$year2.'-'.$month2.'-'.$day2.'</center></th>
 			</tr>
 		  </thead>
 		</table>';
@@ -105,11 +107,16 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 			$etxeko_taldea=$partidua['etxeko_taldea'];
 			$kanpoko_taldea=$partidua['kanpoko_taldea'];
 			
+			list($ordua,$min,$seg)=explode(":",$partidua['orduaString']);
+			if($min<10){
+				$min='0'.$min;
+			}
+			
 			if( $partidua['partiduaren_egoera']==1){
 				echo '<tr>
 					<td><center><img src="../img/taldea/'.$etxeko_taldea['idTaldea'].'.png" class="rounded" width="50" height="50"></center></td>
 					<td><center>'.$etxeko_taldea['urlIzena'].'</center></td>
-					<td><center>'.$partidua['orduaString'].'</center></td>
+					<td><center>'.($ordua-18).':'.$min.'</center></td>
 					<td><center>'.$kanpoko_taldea['urlIzena'].'</center></td>
 					<td><center><img src="../img/taldea/'.$kanpoko_taldea['idTaldea'].'.png" class="rounded" width="50" height="50"></center></td>
 				  </tr>';

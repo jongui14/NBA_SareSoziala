@@ -8,6 +8,8 @@ if ( isset($_SESSION["erabiltzailea"])){
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
@@ -79,10 +81,10 @@ function kontura_sartu() {
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Pasahitza" required="required" id='pasahitza'>
         </div>
-        <div class="form-group small clearfix">
+        <!--<div class="form-group small clearfix">
             <label class="checkbox-inline"><input type="checkbox"> Gogoratu</label>
             <a href="#" class="forgot-link">Pasahitza ahaztu ahal duzu?</a>
-        </div> 
+        </div> -->
         <input type="button" class="btn btn-primary btn-block btn-lg" value="Login" onclick='kontura_sartu()'>              
 		<div class="text-center small">Ez duzu konturik? <a href="./erabiltzailea_sortu.php">Erregistratu</a></div>
 	</form>

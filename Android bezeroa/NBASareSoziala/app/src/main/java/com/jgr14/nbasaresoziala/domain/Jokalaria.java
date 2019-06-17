@@ -82,7 +82,7 @@ public class Jokalaria implements Serializable,KvmSerializable {
 			String salario="";
 			System.out.println(salarioLag.substring(salarioLag.length()-3,salarioLag.length()));
 			while(salarioLag.length()>3) {
-				salario=salario+","+salarioLag.substring(salarioLag.length()-3,salarioLag.length());
+				salario=","+salarioLag.substring(salarioLag.length()-3,salarioLag.length())+salario;
 				salarioLag=salarioLag.substring(0,salarioLag.length()-3);
 			}
 			salario="$"+salarioLag+salario;

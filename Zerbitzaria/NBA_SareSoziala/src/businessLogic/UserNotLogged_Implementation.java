@@ -34,6 +34,7 @@ public class UserNotLogged_Implementation implements UserNotLogged_Interface {
 	@WebMethod
 	public boolean KomunitateaLibre(String nick) {
 		System.out.println("KomunitateaLibre: "+nick);
+		if(nick.length()<5 || nick.length()>15)return false;
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		return dbManager.KomunitateaLibre(nick);
 	}
@@ -41,6 +42,7 @@ public class UserNotLogged_Implementation implements UserNotLogged_Interface {
 	@WebMethod
 	public boolean ErabiltzaileNickLibre(String nick) {	
 		System.out.println("ErabiltzaileNickLibre: "+nick);
+		if(nick.length()<5 || nick.length()>15)return false;
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		return dbManager.ErabiltzaileNickLibre(nick);
 	}
@@ -161,8 +163,8 @@ public class UserNotLogged_Implementation implements UserNotLogged_Interface {
 	@WebMethod
 	public boolean PasahitzaOnargarria(String pass) {
 		System.out.println("pass "+pass);
+		if(pass.length()<6 || pass.length()>20)return false;
 		if(pass==null)return false;
-		if(pass.equals("1234"))return false;
 		return true;
 	}
 	

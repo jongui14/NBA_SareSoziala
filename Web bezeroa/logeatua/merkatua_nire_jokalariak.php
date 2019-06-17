@@ -17,6 +17,8 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
@@ -25,7 +27,7 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 <script>
 function merkatuan_jarri(idJokalaria){
 	var hasierakoPrezioa=document.getElementById("oferta"+idJokalaria).value;
-	
+
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", "../php/merkatua_jokalaria_gehitu.php?id_jokalaria="+idJokalaria+"&hasierakoPrezioa="+hasierakoPrezioa, true);
 	xmlhttp.send();
@@ -85,7 +87,7 @@ function merkatuan_jarri(idJokalaria){
 					  <td><div class="text-center"><img src="../img/taldea/'.$jokalaria['taldeaByIdTaldea'].'.png" class="rounded" width="50" height="50"></div></td>
 					  <td scope="row"><div class="text-center"><img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></td>
 					  <td>'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</td>
-					  <td>'.$jokalaria['soldata'].'</td>
+					  <td>'.DiruaFormatuarekin($jokalaria['soldata']).'</td>
 					  <td>'.$jokalaria['posizioa'].'</td>
 					  <td><input type="text" class="form-control" id="oferta'.$jokalaria['idJokalaria'].'" value="'.$jokalaria['soldata'].'"></td>
 					  <td><button type="button" class="btn btn-success btn-lg btn-block" onclick="merkatuan_jarri(\''.$jokalaria['idJokalaria'].'\')">Merkatuan jarri</button></td>

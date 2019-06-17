@@ -11,6 +11,8 @@ if ( isset($_SESSION["erabiltzailea"])){
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->

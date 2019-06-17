@@ -17,6 +17,8 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
@@ -87,9 +89,9 @@ function oferta_egin(idMerkatukoJokalaria){
 					  <th scope="row"><div class="text-center"><img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></th>
 					  <td>'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</td>
 					  <td><div class="text-center"><img src="../img/taldea/'.$jokalaria['taldeaByIdTaldea'].'.png" class="rounded" width="50" height="50"></div></td>
-					  <td>'.$jokalaria['soldata'].'</td>
+					  <td>'.DiruaFormatuarekin($jokalaria['soldata']).'</td>
 					  <td>'.$jokalaria['posizioa'].'</td>
-					  <td>'.$merkatuko_jokalaria['hasierakoPrezioa'].'</td>
+					  <td>'.DiruaFormatuarekin($merkatuko_jokalaria['hasierakoPrezioa']).'</td>
 					  <td><input type="text" class="form-control" id="oferta'.$merkatuko_jokalaria['idMerkatukoJokalaria'].'" ></td>
 					  <td><button type="button" class="btn btn-success btn-lg btn-block" onclick="oferta_egin(\''.$merkatuko_jokalaria['idMerkatukoJokalaria'].'\')">Oferta egin</button></td>
 					</tr>';

@@ -38,7 +38,22 @@ function Transakzioaren_Mezua($transakzioa){
 }
 
 function DiruaFormatuarekin($dirua){
-	return $dirua;
+	$soldata='';
+	while( strlen($dirua) > 3){
+		$soldata=','.substr($dirua,strlen($dirua)-3,strlen($dirua)).$soldata;
+		$dirua=substr($dirua,0,strlen($dirua)-3);
+	}
+	$soldata='$'.$dirua.$soldata;
+	return $soldata;
 }
+
+
+
+
+
+
+
+
+
 
 ?>

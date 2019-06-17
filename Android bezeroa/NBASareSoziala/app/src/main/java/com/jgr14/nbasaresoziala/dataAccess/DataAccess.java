@@ -1079,6 +1079,32 @@ public class DataAccess {
     }
 
 
+    public static boolean PasahitzaOnargarria(String pass){
+        try {
+            String funtzio_izena="PasahitzaOnargarria";
+
+            SoapObject soapObject = new SoapObject(NAMESPACE, funtzio_izena);
+            PropertyInfo propertyInfo = new PropertyInfo();
+            propertyInfo.setName("arg0");
+            propertyInfo.setValue(pass);
+            propertyInfo.setType(String.class);
+            soapObject.addProperty(propertyInfo);
+
+            SoapSerializationEnvelope envelope =  new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet=false;
+            envelope.setOutputSoapObject(soapObject);
+
+            HttpTransportSE httpTransportSE = new HttpTransportSE(WSDL_UserNotLogged);
+            httpTransportSE.call(NAMESPACE+funtzio_izena, envelope);
+
+            SoapPrimitive  response = (SoapPrimitive) envelope.getResponse();
+            return Boolean.parseBoolean(response.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
     public static boolean ErabiltzaileNickLibre(String nick){
         try {
             String funtzio_izena="ErabiltzaileNickLibre";

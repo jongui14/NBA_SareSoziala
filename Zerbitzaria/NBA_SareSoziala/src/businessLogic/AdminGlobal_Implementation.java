@@ -53,6 +53,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	 */
 	@WebMethod
 	public void JokalarienInformazioaEguneratu() {
+		System.out.println("Administratzaile globala:  JokalarienInformazioaEguneratu");
 		DataAccesNBA dataAccesNBA= new DataAccesNBA();
 		HibernateDataAccess dbManager = new HibernateDataAccess();
     	for(Jokalaria jokalaria:dataAccesNBA.jokalariakLortu()) {
@@ -61,6 +62,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	}
 	@WebMethod
 	public void SoldatakEguneratu() {
+		System.out.println("Administratzaile globala:  SoldatakEguneratu");
 		DataAccesNBA dataAccesNBA= new DataAccesNBA();
 		HibernateDataAccess dbManager = new HibernateDataAccess();
     	for(Jokalaria jokalaria:dataAccesNBA.jokalariakSoldatekinLortu()) {
@@ -69,6 +71,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	}
 	@WebMethod
 	public void TaldeenInformazioaEguneratu() {
+		System.out.println("Administratzaile globala:  TaldeenInformazioaEguneratu");
 		DataAccesNBA dataAccesNBA= new DataAccesNBA();
 		HibernateDataAccess dbManager = new HibernateDataAccess();
     	for(Taldea taldea:dataAccesNBA.taldeakLortu()) {
@@ -78,6 +81,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	
 	@WebMethod
 	public void MezuGeneralakBidali(String mezuaTextua) {
+		System.out.println("Administratzaile globala:  MezuGeneralakBidali '"+mezuaTextua+"'");
 		Calendar cal = Calendar.getInstance();
 	    Date date=cal.getTime();
 	    
@@ -97,6 +101,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	
 	@WebMethod
 	public List<Komunitatea> KomunitateakLortu(){
+		System.out.println("Administratzaile globala:  KomunitateakLortu");
 		List<Komunitatea> emaitza = new ArrayList<Komunitatea>();
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		Set<Komunitatea> komunitateak = dbManager.getAllKomunitateak();
@@ -108,10 +113,10 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	
 	@WebMethod
 	public void MerkatuenEgoeraEguneratu(){
-		System.out.println("merkatuak eguneratu");
+		System.out.println("Administratzaile globala:  MerkatuenEgoeraEguneratu");
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		for(MerkatukoJokalaria merkatukoJokalaria:dbManager.getAllMerkatukoJokalariak()) {
-			if(!merkatukoJokalaria.isTramitatua() && merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea()!=null && merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea().getIdErabiltzailea()!=1) {
+			if(!merkatukoJokalaria.isTramitatua()) {
 				if(merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaJabea()!=null && merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaJabea().getIdErabiltzailea()!=1 && merkatukoJokalaria.isOnartua()) {
 					Erabiltzailea jabea=merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaJabea();
 					jabea.getJokalarias().remove(merkatukoJokalaria.getJokalaria());
@@ -125,17 +130,19 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 					tran.setEguna(new Date());
 					dbManager.transakzioaGorde(tran);
 				}
-				Erabiltzailea irabazlea=merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea();
-				irabazlea.getJokalarias().add((Jokalaria)merkatukoJokalaria.getJokalaria());
-				irabazlea.setDirua(irabazlea.getDirua()-merkatukoJokalaria.getEskaintzaIrabazlea());
-				dbManager.erabiltzaileaGorde(irabazlea);
-				
-				Transakzioa tran=new Transakzioa();
-				tran.setErabiltzailea(irabazlea);
-				tran.setKantitatea(-merkatukoJokalaria.getEskaintzaIrabazlea());
-				tran.setMezua("4_"+merkatukoJokalaria.getJokalaria().izenOsoa());
-				tran.setEguna(new Date());
-				dbManager.transakzioaGorde(tran);
+				if(merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea()!=null && merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea().getIdErabiltzailea()!=1 && merkatukoJokalaria.isOnartua()) {
+					Erabiltzailea irabazlea=merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea();
+					irabazlea.getJokalarias().add((Jokalaria)merkatukoJokalaria.getJokalaria());
+					irabazlea.setDirua(irabazlea.getDirua()-merkatukoJokalaria.getEskaintzaIrabazlea());
+					dbManager.erabiltzaileaGorde(irabazlea);
+					
+					Transakzioa tran=new Transakzioa();
+					tran.setErabiltzailea(irabazlea);
+					tran.setKantitatea(-merkatukoJokalaria.getEskaintzaIrabazlea());
+					tran.setMezua("4_"+merkatukoJokalaria.getJokalaria().izenOsoa());
+					tran.setEguna(new Date());
+					dbManager.transakzioaGorde(tran);
+				}
 			}
 			merkatukoJokalaria.setTramitatua(true);
 			dbManager.merkatukoJokalariaGorde(merkatukoJokalaria);
@@ -149,12 +156,12 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	}
 	@WebMethod
 	public void MerkatuanJokalariakTxertatu(Komunitatea komunitatea) {
+		System.out.println("Administratzaile globala:  MerkatuanJokalariakTxertatu "+komunitatea.getIdKomunitatea()+" "+komunitatea.getIdKomunitatea());
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		Erabiltzailea root=dbManager.erabiltzaileaLortu(1);
 		Iterator it=dbManager.komunitatekoMerkaturakoAukeratutakoJokalariak(komunitatea).iterator();
 		while(it.hasNext()) {
 			Jokalaria jokalaria=(Jokalaria)it.next();
-			System.out.println("MerkatuaEgoeraEguneratu    "+jokalaria.getIzena()+" "+jokalaria.getAbizena());
 			MerkatukoJokalaria merkatukoJokalaria = new MerkatukoJokalaria();
 			merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaJabea(root);
 			merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaIrabazlea(root);
@@ -173,6 +180,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	
 	@WebMethod
 	public void JardunaldiakHasieratu(int urtea,int hilabetea,int eguna) {		
+		System.out.println("Administratzaile globala:  JardunaldiakHasieratu "+urtea+"-"+hilabetea+"-"+eguna);
     	//Calendar : 1 Igandea, 2 Astelehena, 3 Asteartea, 4 Asteazkena, 5 Osteguna, 6 Ostirala, 7 Larunbata
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 
@@ -193,6 +201,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	}
 	@WebMethod
 	public List<Jardunaldia> JardunaldiakLortu(){
+		System.out.println("Administratzaile globala:  JardunaldiakLortu");
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		List<Jardunaldia> emaitza = new ArrayList<Jardunaldia>();
 		Iterator it=dbManager.getAllJardunaldiak().iterator();
@@ -208,11 +217,11 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	}
 	@WebMethod
 	public boolean JardunaldikoPuntuakLortu(Jardunaldia jardunaldia){
+		System.out.println("Administratzaile globala:  JardunaldikoPuntuakLortu "+jardunaldia.getIdJardunaldia());
 		UserNotLogged_Implementation appI= new UserNotLogged_Implementation();
 		DataAccesNBA dataAccesNBA = new DataAccesNBA();
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		
-		System.out.println("JardunaldikoPuntuakLortu: ");
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(jardunaldia.getHasierakoEguna());cal.add(Calendar.DATE, -1);
 		
@@ -386,6 +395,7 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 	
 	@WebMethod
 	public boolean AlineazioakFinkatu() {
+		System.out.println("Administratzaile globala:  AlineazioakFinkatu");
 		try {
 			HibernateDataAccess dbManager = new HibernateDataAccess();
 			Set<Alineazioa> alineazioak = dbManager.getAllAlineazioak();
@@ -397,7 +407,6 @@ public class AdminGlobal_Implementation implements AdminGlobal_Interface {
 					dbManager.alineazioaGorde(alineazioa);
 				}
 			}
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;

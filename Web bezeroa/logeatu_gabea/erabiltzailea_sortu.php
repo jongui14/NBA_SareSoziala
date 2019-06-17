@@ -8,6 +8,8 @@ if ( isset($_SESSION["erabiltzailea"])){
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
@@ -28,7 +30,7 @@ if ( isset($_SESSION["erabiltzailea"])){
                <a class="nav-link" href="./partiduen_emaitzak.php">Partiduen emaitzak</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="./jokalariak.php">JOKALARIAK</a>
+               <a class="nav-link" href="./jokalariak.php">Jokalariak</a>
             </li>
 			<li class="nav-item">
                <a class="nav-link" href="./taldeak.php">Taldeak</a>
@@ -254,9 +256,9 @@ $(document).ready(function(){
 		<div class="form-group">
             <input type="password" class="form-control" name='pasahitza2' id='pasahitza2' placeholder="Pasahitza errepikatu" required="required">
         </div>        
-        <div class="form-group">
+        <!--<div class="form-group">
 			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-		</div>
+		</div>-->
 		<div class="form-group">
             <button type="button" id='botonFormulario' class="btn btn-success btn-lg btn-block" onclick='erabiltzailea_sortu_generala()' disabled>Erabiltzailea sortu</button>
         </div>

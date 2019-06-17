@@ -24,6 +24,7 @@ import domain.MerkatukoJokalaria;
 import domain.Mezua;
 import domain.PuntuazioaErabiltzaileaJardunaldia;
 import domain.PuntuazioaJokalariaJardunaldia;
+import domain.Taldea;
 import domain.Transakzioa;
 
 
@@ -79,14 +80,26 @@ public class UserLogged_Implementation implements UserLogged_Interface {
 	 * MERKATUA
 	 */
 	@WebMethod
-	public boolean MerkatuanJarri(Komunitatea komunitatea,Erabiltzailea erabiltzailea,Jokalaria jokalaria,int hasierakoPrezioa) {
+	public boolean MerkatuanJarri(Komunitatea komunitatea,Erabiltzailea erabiltzailea,Jokalaria jok,int hasierakoPrezioa) {
 		try {
 			System.out.println("MerkatuanJarri");
 			HibernateDataAccess dbManager = new HibernateDataAccess();
+			
+			Iterator it = dbManager.komunitatekoMerkatukoJokalariak(komunitatea).iterator();
+			while(it.hasNext()) {
+				try {
+					MerkatukoJokalaria merkatukoJokalaria=(MerkatukoJokalaria)it.next();
+					if(merkatukoJokalaria.getJokalaria().getIdJokalaria()==jok.getIdJokalaria())return false;			
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+			Jokalaria jokalaria=dbManager.jokalariaLortu(jok.getIdJokalaria());
 			//Erabiltzailea erabLag = dbManager.erabiltzaileaLortu(erabiltzailea.getIdErabiltzailea());
 			MerkatukoJokalaria merkatukoJokalaria = new MerkatukoJokalaria();
 			merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaJabea(erabiltzailea);
-			merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaIrabazlea(erabiltzailea);
+			merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaIrabazlea(new Erabiltzailea(1));
 			merkatukoJokalaria.setJokalaria(jokalaria);
 			merkatukoJokalaria.setKomunitatea(komunitatea);
 			merkatukoJokalaria.setHasierakoPrezioa(hasierakoPrezioa);
@@ -138,9 +151,10 @@ public class UserLogged_Implementation implements UserLogged_Interface {
 			System.out.println("OfertaEgin");
 			HibernateDataAccess dbManager = new HibernateDataAccess();
 			MerkatukoJokalaria merkatukoJokalariaLag = dbManager.merkatukoJokalariaLortu(merkatukoJokalaria.getIdMerkatukoJokalaria());
-			if(merkatukoJokalariaLag.getEskaintzaIrabazlea()<oferta) {
+			if((merkatukoJokalariaLag.getErabiltzaileaByIdErabiltzaileaJabea()==null || merkatukoJokalariaLag.getErabiltzaileaByIdErabiltzaileaJabea().getIdErabiltzailea()==1) && merkatukoJokalariaLag.getEskaintzaIrabazlea()<oferta) {
 				merkatukoJokalariaLag.setEskaintzaIrabazlea(oferta);
 				merkatukoJokalariaLag.setErabiltzaileaByIdErabiltzaileaIrabazlea(erabiltzailea);
+				merkatukoJokalariaLag.setOnartua(true);
 				dbManager.merkatukoJokalariaGorde(merkatukoJokalariaLag);
 			}
 			Eskaintza eskaintza = new Eskaintza();
@@ -213,6 +227,8 @@ public class UserLogged_Implementation implements UserLogged_Interface {
 		HibernateDataAccess dbManager = new HibernateDataAccess();
 		Iterator it=dbManager.getErabiltzailearenTransakzioak(erabiltzailea).iterator();
 		while(it.hasNext())emaitza.add((Transakzioa)it.next());
+		emaitza.sort(Comparator.comparingInt(Transakzioa::getIdTransakzioa));
+		Collections.reverse(emaitza);
 		return emaitza;
 	}
 	@WebMethod

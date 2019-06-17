@@ -28,53 +28,61 @@
 			)
 		);
 		$erabiltzailea=$result['return'];
-		if($erabiltzailea['idErabiltzailea']>1){echo 'login_eginda<br>';}
-		print_r ($result['return']);
+		if($erabiltzailea['idErabiltzailea']>1){
+			echo 'login_eginda<br>';
+			print_r ($result['return']);
 		
 
-		$erabiltzaile = new Erabiltzailea();
-		$erabiltzaile->idErabiltzailea = $erabiltzailea['idErabiltzailea'];
-		$erabiltzaile->nick = $erabiltzailea['nick'];
-		$erabiltzaile->email = $erabiltzailea['email'];
-		$erabiltzaile->izenOsoa = $erabiltzailea['izenOsoa'];
-		$erabiltzaile->dirua = $erabiltzailea['dirua'];
-		if($erabiltzailea['administratzailea']=='true'){
-			$erabiltzaile->administratzailea=true;
+			$erabiltzaile = new Erabiltzailea();
+			$erabiltzaile->idErabiltzailea = $erabiltzailea['idErabiltzailea'];
+			$erabiltzaile->nick = $erabiltzailea['nick'];
+			$erabiltzaile->email = $erabiltzailea['email'];
+			$erabiltzaile->izenOsoa = $erabiltzailea['izenOsoa'];
+			$erabiltzaile->dirua = $erabiltzailea['dirua'];
+			if($erabiltzailea['administratzailea']=='true'){
+				$erabiltzaile->administratzailea=true;
+			}else{
+				$erabiltzaile->administratzailea=false;
+			}
+			$erabiltzaile->hizkuntza = $erabiltzailea['hizkuntza'];
+			$erabiltzaile->koloreak = $erabiltzailea['koloreak'];
+			$erabiltzaile->orduDiferentzia = $erabiltzailea['orduDiferentzia'];	
+			$_SESSION["erabiltzailea"]=$erabiltzaile;
+			
+			$komunitatea = new Komunitatea();
+			$komunitatea->idKomunitatea = $erabiltzailea['komunitatea'];
+			$_SESSION["komunitatea"]=$komunitatea;
+			
+			
+			
+			$client = new nusoap_client($user_wsdl,true);
+					$result = $client->call('KomunitateaLortu', 
+				array(	'arg0' =>$komunitatea)
+			);
+			$res=$result['return'];
+			$komunitatea->saria1=$res['saria1'];
+			$komunitatea->saria2=$res['saria2'];
+			$komunitatea->saria3=$res['saria3'];
+			
+			
+			  
+			$result = $client->call('ErabiltzaileakLortu', 
+				array(	'arg0' =>$komunitatea)
+			);echo '<br>';
+			print_r ($result['return']);
+
+			$erabiltzaile_guztiak=$result['return'];
+			if (array_key_exists("idErabiltzailea",$erabiltzaile_guztiak)){
+				$erabiltzaile_guztiak=array($erabiltzaile_guztiak);
+			}
+			$_SESSION["erabiltzaile_guztiak"]=$erabiltzaile_guztiak;
+			
+			
+			
 		}else{
-			$erabiltzaile->administratzailea=false;
+			echo 'login_okerra';
 		}
-		$erabiltzaile->hizkuntza = $erabiltzailea['hizkuntza'];
-		$erabiltzaile->koloreak = $erabiltzailea['koloreak'];
-		$erabiltzaile->orduDiferentzia = $erabiltzailea['orduDiferentzia'];	
-		$_SESSION["erabiltzailea"]=$erabiltzaile;
 		
-		$komunitatea = new Komunitatea();
-		$komunitatea->idKomunitatea = $erabiltzailea['komunitatea'];
-		$_SESSION["komunitatea"]=$komunitatea;
-		
-		
-		
-		$client = new nusoap_client($user_wsdl,true);
-				$result = $client->call('KomunitateaLortu', 
-			array(	'arg0' =>$komunitatea)
-		);
-		$res=$result['return'];
-		$komunitatea->saria1=$res['saria1'];
-		$komunitatea->saria2=$res['saria2'];
-		$komunitatea->saria3=$res['saria3'];
-		
-		
-		  
-		$result = $client->call('ErabiltzaileakLortu', 
-			array(	'arg0' =>$komunitatea)
-		);echo '<br>';
-		print_r ($result['return']);
-
-		$erabiltzaile_guztiak=$result['return'];
-		if (array_key_exists("idErabiltzailea",$erabiltzaile_guztiak)){
-			$erabiltzaile_guztiak=array($erabiltzaile_guztiak);
-		}
-		$_SESSION["erabiltzaile_guztiak"]=$erabiltzaile_guztiak;
 		
 		
 	}

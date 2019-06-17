@@ -23,9 +23,10 @@
 	}else{ 
 		// specific service call     
 		$result = $client->call('MerkatuanJarri', 
-			array(	'arg0' =>$_SESSION["erabiltzailea"],
-					'arg1' =>$jokalaria,
-					'arg2' =>$_GET['hasierakoPrezioa'],
+			array(	'arg0' =>$_SESSION['komunitatea'],
+					'arg1' =>$_SESSION["erabiltzailea"],
+					'arg2' =>$jokalaria,
+					'arg3' =>$_GET['hasierakoPrezioa'],
 				  )
 		);
 		print_r ($result['return']);

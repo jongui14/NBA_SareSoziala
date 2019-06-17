@@ -17,6 +17,8 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 <html>
 <head>
 
+<link rel="icon" type="image/png" href="../img/ic_launcher.png">
+
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 <script src="../lib/jquery/jquery-3.3.1.min.js"></script><!-- jQuery library -->
@@ -60,7 +62,7 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 			  <th scope="col"></th>
 			  <th scope="col"></th>
 			  <th scope="col"></th>
-			  <th scope="col">'.$erabiltzaile->dirua.'</th>
+			  <th scope="col">'.DiruaFormatuarekin($erabiltzaile->dirua).'</th>
 			</tr>
 		  </thead>
 		</table><hr>';
@@ -84,10 +86,16 @@ $erabiltzaile = $_SESSION["erabiltzailea"];
 		}
 		foreach ($transakzioak as &$transakzioa) {
 			$nick=erabiltzailearen_nick($mezua['erabiltzailea']);
+			
+			$date=$transakzioa['eguna'];
+			$year=substr($date,0,4);
+			$month=substr($date,5,2);
+			$day=substr($date,8,2);
+			
 			echo '<tr>
-					<td><center>'.$transakzioa['kantitatea'].'</center></td>
+					<td><center>'.DiruaFormatuarekin($transakzioa['kantitatea']).'</center></td>
 					<td><center>'.Transakzioaren_Mezua($transakzioa['mezua']).'</center></td>
-					<td><center>'.$transakzioa['eguna'].'</center></td>
+					<td><center>'.$year.'-'.$month.'-'.$day.'</center></td>
 				</tr>';
 			
 		}
