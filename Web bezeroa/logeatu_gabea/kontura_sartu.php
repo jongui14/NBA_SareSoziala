@@ -30,7 +30,7 @@ function kontura_sartu() {
 			if(erabiltzailea.includes('login_eginda')){
 				window.location.href = "../logeatua/index.php";
 			}else{
-				alert("GAIZKI!");
+				document.getElementById("error").innerHTML="Errorea kontura sartzean!"
 			}
         }
 	};
@@ -85,6 +85,7 @@ function kontura_sartu() {
             <label class="checkbox-inline"><input type="checkbox"> Gogoratu</label>
             <a href="#" class="forgot-link">Pasahitza ahaztu ahal duzu?</a>
         </div> -->
+		<center><span id="error" style="color:red"> </span></center>
         <input type="button" class="btn btn-primary btn-block btn-lg" value="Login" onclick='kontura_sartu()'>              
 		<div class="text-center small">Ez duzu konturik? <a href="./erabiltzailea_sortu.php">Erregistratu</a></div>
 	</form>

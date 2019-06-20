@@ -151,6 +151,7 @@ public class UserLogged_Implementation implements UserLogged_Interface {
 			System.out.println("OfertaEgin");
 			HibernateDataAccess dbManager = new HibernateDataAccess();
 			MerkatukoJokalaria merkatukoJokalariaLag = dbManager.merkatukoJokalariaLortu(merkatukoJokalaria.getIdMerkatukoJokalaria());
+			if(merkatukoJokalariaLag.getErabiltzaileaByIdErabiltzaileaJabea().getIdErabiltzailea()==erabiltzailea.getIdErabiltzailea())return false;
 			if((merkatukoJokalariaLag.getErabiltzaileaByIdErabiltzaileaJabea()==null || merkatukoJokalariaLag.getErabiltzaileaByIdErabiltzaileaJabea().getIdErabiltzailea()==1) && merkatukoJokalariaLag.getEskaintzaIrabazlea()<oferta) {
 				merkatukoJokalariaLag.setEskaintzaIrabazlea(oferta);
 				merkatukoJokalariaLag.setErabiltzaileaByIdErabiltzaileaIrabazlea(erabiltzailea);
@@ -314,6 +315,7 @@ public class UserLogged_Implementation implements UserLogged_Interface {
 		Iterator it=dbManager.erabiltzaileakLortu(komunitatea).iterator();
 		List<Erabiltzailea>  res = new ArrayList<Erabiltzailea>();
 		while(it.hasNext())res.add(((Erabiltzailea)it.next()).getKopia());
+		res.sort(Comparator.comparingInt(Erabiltzailea::getIdErabiltzailea));
 		return res;
 	}
 	@WebMethod

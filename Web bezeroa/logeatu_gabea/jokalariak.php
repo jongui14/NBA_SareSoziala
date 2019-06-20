@@ -76,9 +76,11 @@ function jokalariaren_estadistikak(idJokalaria,izen_osoa,idTaldea,posizioa,solda
    </div>
 </nav>
 
-<div style='height:90%; width:35%;display: inline-block;overflow-y: scroll;' >
+
+
+
 <?php
-    $wsdl = $usernot_wsdl;
+    $wsdl = 'http://localhost:9999/usernotlogged?wsdl';
 	
 	// Require Soap
 	error_reporting(E_ERROR | E_PARSE);
@@ -102,59 +104,43 @@ function jokalariaren_estadistikak(idJokalaria,izen_osoa,idTaldea,posizioa,solda
 			<thead>
 				<tr>
 					<th></th>
-					<th>Jokalaria</th>'.
-					//<th>Soldata</th>
-					'<th>Taldea</th>'.
-					//<th>Posizioa</th>
-					//<th>Dorsala</th>
-					//<th>Altuera</th>
-					//<th>Pisua</th>
-					//<th>Jaiotze-data</th>
-					//<th>Nazionalitatea</th>
-				'</tr>
+					<th>Jokalaria</th>
+					<th>Soldata</th>
+					<th>Taldea</th>
+					<th>Posizioa</th>
+					<th>Dorsala</th>
+					<th>Altuera</th>
+					<th>Pisua</th>
+					<th>Jaiotze-data</th>
+					<th>Nazionalitatea</th>
+				</tr>
 			</thead>
 			<tbody>';
 		
 		$jokalariak = $result['return'];
-		$idJokalaria=0;$luzeera = sizeof($jokalariak);
-		if ( isset($_GET["idJokalaria"])){
-			$idJokalaria=$_GET["idJokalaria"];
-		}
 		foreach ($jokalariak as &$jokalaria) {
-			$jok_inf_lag=$jokalaria['idJokalaria'].",'".$jokalaria['izena']." ".$jokalaria['abizena']."',".$jokalaria['taldeaByIdTaldea'].",'".$jokalaria['posizioa']."',".$jokalaria['soldata'].",".$jokalaria['dortsala'].",".$jokalaria['altuera'].",".$jokalaria['pisua'].",'".substr($jokalaria['jaiotzeData'],0,10)."','".$jokalaria['nazionalitatea']."'";
 			echo '<tr>
-					  <th scope="row"><div class="text-center"><img style="cursor:hand" onclick="jokalariaren_estadistikak('.$jok_inf_lag.')" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></th>
-					  <td><p class="text-primary" style="cursor:hand" onclick="jokalariaren_estadistikak('.$jok_inf_lag.')">'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</p></td>'.
-					  //<td>'.$jokalaria['soldata'].'</td>
-					  '<td><a href="./taldeak.php?idTaldea='.$jokalaria['taldeaByIdTaldea'].'"><div class="text-center"><img src="../img/taldea/'.$jokalaria['taldeaByIdTaldea'].'.png" class="rounded" width="50" height="50"></div></a></td>'.
-					  //<td>'.$jokalaria['posizioa'].'</td>
-					  //<td>'.$jokalaria['dortsala'].'</td>
-					  //<td>'.$jokalaria['altuera'].'</td>
-					  //<td>'.$jokalaria['pisua'].'</td>
-					  //<td>'.substr($jokalaria['jaiotzeData'],0,10).'</td>
-					  //<td>'.$jokalaria['nazionalitatea'].'</td>
-					'</tr>';
-					
-			if($idJokalaria==0 && $luzeera==sizeof($jokalariak) || $idJokalaria==$jokalaria['idJokalaria']){
-				$jok_inf=$jok_inf_lag;
-				$idJokalaria=$jokalaria['idJokalaria'];$luzeera--;
-			}
+					  <th scope="row"><div class="text-center"><img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></th>
+					  <td>'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</td>
+					  <td>'.DiruaFormatuarekin($jokalaria['soldata']).'</td>
+					  <td><div class="text-center"><img src="../img/taldea/'.$jokalaria['taldeaByIdTaldea'].'.png" class="rounded" width="50" height="50"></div></td>
+					  <td>'.$jokalaria['posizioa'].'</td>
+					  <td>'.$jokalaria['dortsala'].'</td>
+					  <td>'.$jokalaria['altuera'].'</td>
+					  <td>'.$jokalaria['pisua'].'</td>
+					  <td>'.substr($jokalaria['jaiotzeData'],0,10).'</td>
+					  <td>'.$jokalaria['nazionalitatea'].'</td>
+					</tr>';
 		}
-		echo '</tbody></table>';
+		
 		//print_r ($result['return']);
 		
 	}
 
 ?>
-</div><div id='divEstadistikaJokalaria' style='width:65%; display: inline-block;height:90%; overflow-y: scroll;' >
-
-</div>
 
 
-<script>
-<!--jokalariaren_estadistikak(idJokalaria,izen_osoa,idTaldea,posizioa,soldata,dortsala,altuera,pisua,jaiotzeData,nazionalitatea);-->
-jokalariaren_estadistikak(<?php echo $jok_inf;?>);
-</script>
+
 
 </body>
 </html>

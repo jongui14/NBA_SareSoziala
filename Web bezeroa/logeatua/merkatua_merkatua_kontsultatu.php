@@ -34,7 +34,13 @@ function oferta_egin(idMerkatukoJokalaria){
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res=this.responseText;
-			alert(res);
+			if(res.toLowerCase().includes("true")){
+				document.getElementById("ok_msg"+idMerkatukoJokalaria).innerHTML="Eskaintza ondo egin da!";
+				document.getElementById("error"+idMerkatukoJokalaria).innerHTML="";
+			}else{
+				document.getElementById("error"+idMerkatukoJokalaria).innerHTML="Errorea eskaintza egitean!";
+				document.getElementById("ok_msg"+idMerkatukoJokalaria).innerHTML="";
+			}
         }
 	};
 }
@@ -73,6 +79,7 @@ function oferta_egin(idMerkatukoJokalaria){
 			  <th scope="col"></th>
 			  <th scope="col">Jokalaria</th>
 			  <th scope="col">Taldea</th>
+			  <th scope="col"><center>Erabiltzailea</center></th>
 			  <th scope="col">Soldata</th>
 			  <th scope="col">Posizioa</th>
 			  <th scope="col">Has. Prezioa</th>
@@ -89,10 +96,12 @@ function oferta_egin(idMerkatukoJokalaria){
 					  <th scope="row"><div class="text-center"><img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></th>
 					  <td>'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</td>
 					  <td><div class="text-center"><img src="../img/taldea/'.$jokalaria['taldeaByIdTaldea'].'.png" class="rounded" width="50" height="50"></div></td>
+					  <td><center><i>'.erabiltzailearen_nick($merkatuko_jokalaria['erabiltzaileaByIdErabiltzaileaJabea']).'</i></center></td>
 					  <td>'.DiruaFormatuarekin($jokalaria['soldata']).'</td>
 					  <td>'.$jokalaria['posizioa'].'</td>
 					  <td>'.DiruaFormatuarekin($merkatuko_jokalaria['hasierakoPrezioa']).'</td>
-					  <td><input type="text" class="form-control" id="oferta'.$merkatuko_jokalaria['idMerkatukoJokalaria'].'" ></td>
+					  <td><input type="text" class="form-control" id="oferta'.$merkatuko_jokalaria['idMerkatukoJokalaria'].'" >
+						<center><span id="ok_msg'.$merkatuko_jokalaria['idMerkatukoJokalaria'].'" style="color:green"></span> <span id="error'.$merkatuko_jokalaria['idMerkatukoJokalaria'].'" style="color:red"></span></center></td>
 					  <td><button type="button" class="btn btn-success btn-lg btn-block" onclick="oferta_egin(\''.$merkatuko_jokalaria['idMerkatukoJokalaria'].'\')">Oferta egin</button></td>
 					</tr>';
 		}

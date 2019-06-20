@@ -34,7 +34,13 @@ function merkatuan_jarri(idJokalaria){
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res=this.responseText;
-			alert(res);
+			if(res.toLowerCase().includes("true")){
+				document.getElementById("ok_msg"+idJokalaria).innerHTML="Jokalaria merkatuan jarri da!";
+				document.getElementById("error"+idJokalaria).innerHTML="";
+			}else{
+				document.getElementById("error"+idJokalaria).innerHTML="Errorea jokalaria merkatuan jartzean!";
+				document.getElementById("ok_msg"+idJokalaria).innerHTML="";
+			}
         }
 	};
 }
@@ -89,7 +95,8 @@ function merkatuan_jarri(idJokalaria){
 					  <td>'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</td>
 					  <td>'.DiruaFormatuarekin($jokalaria['soldata']).'</td>
 					  <td>'.$jokalaria['posizioa'].'</td>
-					  <td><input type="text" class="form-control" id="oferta'.$jokalaria['idJokalaria'].'" value="'.$jokalaria['soldata'].'"></td>
+					  <td><input type="text" class="form-control" id="oferta'.$jokalaria['idJokalaria'].'" value="'.$jokalaria['soldata'].'">
+							<center><span id="ok_msg'.$jokalaria['idJokalaria'].'" style="color:green"></span> <span id="error'.$jokalaria['idJokalaria'].'" style="color:red"></span></center></td>
 					  <td><button type="button" class="btn btn-success btn-lg btn-block" onclick="merkatuan_jarri(\''.$jokalaria['idJokalaria'].'\')">Merkatuan jarri</button></td>
 					</tr>';
 		}

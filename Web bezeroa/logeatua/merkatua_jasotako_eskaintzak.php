@@ -112,7 +112,7 @@ function erantzun(idMerkatukoJokalaria,erantzuna){
 							if($merkatukoJokalaria['onartua']=='true' && $eskaintza2['eskaintza']==$merkatukoJokalaria['eskaintzaIrabazlea'] && $merkatukoJokalaria['erabiltzaileaByIdErabiltzaileaIrabazlea']==$eskaintza2['erabiltzailea']){
 								$aukeratua="checked";
 							}
-							echo '<input type="radio" name="merkatukoJokalaria'.$merkatukoJokalaria['idMerkatukoJokalaria'].'" value=" '.$eskaintza2['idEskaintza'].'" '.$aukeratua.'>'.DiruaFormatuarekin($eskaintza2['eskaintza']).'<br>';
+							echo '<input type="radio" name="merkatukoJokalaria'.$merkatukoJokalaria['idMerkatukoJokalaria'].'" value=" '.$eskaintza2['idEskaintza'].'" '.$aukeratua.'>'.DiruaFormatuarekin($eskaintza2['eskaintza']).' <i> '.erabiltzailearen_nick($eskaintza2['erabiltzailea']).'</i><br>';
 						}
 					}
 					echo '
@@ -143,6 +143,7 @@ function erantzun(idMerkatukoJokalaria,erantzuna){
 			  <th scope="col"></th>
 			  <th scope="col"><center>Jokalaria</center></th>
 			  <th scope="col"><center>Taldea</center></th>
+			  <th scope="col"><center>Erabiltzailea</center></th>
 			  <th scope="col"><center>Eskaturiko balioa</center></th>
 			  <th scope="col"><center>Eskaintzak</center></th>
 			</tr>
@@ -160,6 +161,7 @@ function erantzun(idMerkatukoJokalaria,erantzuna){
 					  <td scope="row"><center><div class="text-center"><img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$jokalaria['idJokalaria'].'.png" class="rounded" width="68" height="50"></div></center></td>
 					  <td><center>'.$jokalaria['izena'].' '.$jokalaria['abizena'].'</center></td>
 					  <td><center><div class="text-center"><img src="../img/taldea/'.$jokalaria['taldeaByIdTaldea'].'.png" class="rounded" width="50" height="50"></div></center></td>
+					  <td><center><i>'.erabiltzailearen_nick($eskaintza['erabiltzailea']).'</i></center></td>
 					  <td><center>'.DiruaFormatuarekin($eskaintza['eskaintza']).'</center></td><td>';
 					
 					foreach ($eskaintzak as &$eskaintza2) {

@@ -89,8 +89,10 @@ function elegirJugador(idJugador,posicion,element){
 		document.getElementById("pos5").setAttribute('src', '../img/change3.png');
 	}
 }
-function cambioJugador(imgPos){
-	if(id_jokalaria1!=click_id && id_jokalaria2!=click_id && id_jokalaria3!=click_id && id_jokalaria4!=click_id && id_jokalaria5!=click_id ){
+function cambioJugador(imgPos,pos){
+	var boton_click=document.getElementById(pos).src;
+	//alert(boton_click);
+	if(id_jokalaria1!=click_id && id_jokalaria2!=click_id && id_jokalaria3!=click_id && id_jokalaria4!=click_id && id_jokalaria5!=click_id && boton_click.includes("change2") ){
 		
 		if(imgPos.includes('1')){
 			id_jokalaria1=click_id;
@@ -124,11 +126,12 @@ function alineazioa_gorde(){
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res=this.responseText;
-			alert(res);
 			if(res.includes('true')){
-				alert("Gordeta!");
+				document.getElementById("error").innerHTML="";
+				document.getElementById("msg_ok").innerHTML="Alineazioa ondo gorde da!";
 			}else{
-				alert("Alineazioa ez da zuzena!");
+				document.getElementById("error").innerHTML="Errorea alineazioa gordetzean!";
+				document.getElementById("msg_ok").innerHTML="";
 			}
         }
 	};
@@ -140,7 +143,13 @@ function alineazioa_publikatu(){
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res=this.responseText;
-			alert(res);
+			if(res.includes('true')){
+				document.getElementById("error2").innerHTML="";
+				document.getElementById("msg_ok2").innerHTML="Alineazioa ondo publikatu da!";
+			}else{
+				document.getElementById("error2").innerHTML="Errorea alineazioa publikatzean!";
+				document.getElementById("msg_ok2").innerHTML="";
+			}
         }
 	};
 }
@@ -204,35 +213,38 @@ function alineazioa_publikatu(){
 			<tr>
 				<td align="center">G</td>
 				<td scope="row" align="center"><img id="imgPos1" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$id_jokalaria1.'.png" class="rounded" width="68" height="50"></td>
-				<td align="center"><img id="pos1" onclick="cambioJugador(\'imgPos1\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
+				<td align="center"><img id="pos1" onclick="cambioJugador(\'imgPos1\',\'pos1\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
 			</tr>
 			<tr>
 				<td align="center">G</td>
 				<td align="center" scope="row"><img id="imgPos2" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$id_jokalaria2.'.png" class="rounded" width="68" height="50"></td>
-				<td align="center"><img id="pos2" onclick="cambioJugador(\'imgPos2\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
+				<td align="center"><img id="pos2" onclick="cambioJugador(\'imgPos2\',\'pos2\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
 			</tr>
 			<tr>
 				<td align="center">F</td>
 				<td align="center" scope="row"><img id="imgPos3" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$id_jokalaria3.'.png" class="rounded" width="68" height="50"></td>
-				<td align="center"><img id="pos3" onclick="cambioJugador(\'imgPos3\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
+				<td align="center"><img id="pos3" onclick="cambioJugador(\'imgPos3\',\'pos3\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
 			</tr>
 			<tr>
 				<td align="center">F</td>
 				<td align="center" scope="row"><img id="imgPos4" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$id_jokalaria4.'.png" class="rounded" width="68" height="50"></td>
-				<td align="center"><img id="pos4" onclick="cambioJugador(\'imgPos4\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
+				<td align="center"><img id="pos4" onclick="cambioJugador(\'imgPos4\',\'pos4\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
 			</tr>
 			<tr>
 				<td align="center">C</td>
 				<td align="center" scope="row"><img id="imgPos5" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'.$id_jokalaria5.'.png" class="rounded" width="68" height="50"></td>
-				<td align="center"><img id="pos5" onclick="cambioJugador(\'imgPos5\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
+				<td align="center"><img id="pos5" onclick="cambioJugador(\'imgPos5\',\'pos5\')" onmouseover="hover2(this);" onmouseout="unhover2(this);" src="../img/change0.png" width="40" height="40"></td>
 			</tr>
 			</tbody></table>';
 
 		echo '
 		<div class="form-group" style="width:45%;display: inline-block;">
             <button type="button" class="btn btn-success btn-lg btn-block" onclick="alineazioa_gorde()" >Gorde</button>
+			<center><span id="msg_ok" style="color:green"></span></center>
+			<center><span id="error" style="color:red"></span></center>
         </div><div style="width:10%;display: inline-block;"></div><div class="form-group" style="width:45%;display: inline-block;">
-            <button type="button" class="btn btn-success btn-lg btn-block" onclick="alineazioa_publikatu()" >Publikatu</button>
+            <button type="button" class="btn btn-success btn-lg btn-block" onclick="alineazioa_publikatu()" >Publikatu</button>			<center><span id="msg_ok2" style="color:green"></span></center>
+			<center><span id="error2" style="color:red"></span></center>
         </div>';
 	}
 

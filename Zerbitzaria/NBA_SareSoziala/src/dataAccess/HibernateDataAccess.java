@@ -120,8 +120,40 @@ public class HibernateDataAccess {
 		session.getTransaction().commit();
 	}
 	public void erabiltzaileaEzabatu(Erabiltzailea erabiltzailea) {
+		Set<Alineazioa> alineazioak=erabiltzailearenAlineazioGuztiak(erabiltzailea);
+		Set<Eskaintza> eskaintzak=getEgindakoEskaintzak(erabiltzailea);
+		Set<Mezua> mezuak=erabiltzailearenMezuak(erabiltzailea);
+		Set<PuntuazioaErabiltzaileaJardunaldia> puntuazioak=erabiltzailearenPuntuak(erabiltzailea);
+		Set<Transakzioa> transakzioak=getErabiltzailearenTransakzioak(erabiltzailea);
+		Set<MerkatukoJokalaria> merkatukoJokalariak=komunitatekoMerkatukoJokalariak(erabiltzailea.getKomunitatea());
+		Set<Erabiltzailea> erabiltzaileak=erabiltzaileakLortu(erabiltzailea.getKomunitatea());
+
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
+		erabiltzailea.getJokalarias().clear();
+		session.saveOrUpdate(erabiltzailea);
+		for(Alineazioa alineazioa:alineazioak) {session.delete(alineazioa);}
+		for(Eskaintza eskaintza:eskaintzak) {eskaintza.setErabiltzailea(new Erabiltzailea(1));session.saveOrUpdate(eskaintza);}
+		for(MerkatukoJokalaria merkatukoJokalaria:merkatukoJokalariak) {
+			if(merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaJabea().getIdErabiltzailea()==erabiltzailea.getIdErabiltzailea()) {
+				merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaJabea(new Erabiltzailea(1));
+			}
+			if(merkatukoJokalaria.getErabiltzaileaByIdErabiltzaileaIrabazlea().getIdErabiltzailea()==erabiltzailea.getIdErabiltzailea()) {
+				merkatukoJokalaria.setErabiltzaileaByIdErabiltzaileaIrabazlea(new Erabiltzailea(1));
+			}
+			session.saveOrUpdate(merkatukoJokalaria);
+		}
+		for(Mezua mezua:mezuak) {session.delete(mezua);}
+		for(PuntuazioaErabiltzaileaJardunaldia punt:puntuazioak) {session.delete(punt);}
+		for(Transakzioa tran:transakzioak) {session.delete(tran);}
+		
+		Set<Erabiltzailea> komunitatekoErabiltzaileak=new HashSet<Erabiltzailea>();
+		for(Erabiltzailea erab:erabiltzaileak) {
+			if(erab.getIdErabiltzailea()!=erabiltzailea.getIdErabiltzailea())komunitatekoErabiltzaileak.add(erab);
+		}
+		erabiltzailea.getKomunitatea().setErabiltzaileas(komunitatekoErabiltzaileak);
+		session.saveOrUpdate(erabiltzailea.getKomunitatea());
+		
 		session.delete(erabiltzailea);
 		session.getTransaction().commit();
 	}
@@ -398,7 +430,7 @@ public class HibernateDataAccess {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		Set<Mezua> emaitza =  new HashSet<Mezua>();
-		List results = session.createCriteria(Erabiltzailea.class).add(Restrictions.eq("erabiltzailea", erabiltzailea)).list(); 
+		List results = session.createCriteria(Mezua.class).add(Restrictions.eq("erabiltzailea", erabiltzailea)).list(); 
 		Iterator itr = results.iterator();
 		while (itr.hasNext()){
 			emaitza.add((Mezua)itr.next());

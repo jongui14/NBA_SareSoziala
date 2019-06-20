@@ -58,9 +58,25 @@ function erabiltzailea_ezabatu(idErabiltzailea){
 
 <?php include "../datuak/menu_log.html"; ?>
 
-
 <?php
 	error_reporting(E_ERROR | E_PARSE);
+	require_once('../lib/nusoap/nusoap.php');
+	$client = new nusoap_client($user_wsdl,true);
+	$result = $client->call('ErabiltzaileakLortu', 
+				array(	'arg0' =>$_SESSION["komunitatea"])
+			);
+	//print_r ($result['return']);
+
+	$erabiltzaile_guztiak=$result['return'];
+	if (array_key_exists("idErabiltzailea",$erabiltzaile_guztiak)){
+		$erabiltzaile_guztiak=array($erabiltzaile_guztiak);
+	}
+	$_SESSION["erabiltzaile_guztiak"]=$erabiltzaile_guztiak;
+		
+?>
+
+<?php
+	
 	echo '<table class="table">
 		  <thead class="thead-dark">
 			<tr>
@@ -70,11 +86,7 @@ function erabiltzailea_ezabatu(idErabiltzailea){
 		  </thead>
 		';
 		
-	
-		
 	$erabiltzaile_guztiak=$_SESSION['erabiltzaile_guztiak'];
-	//print_r ($erabiltzaile_guztiak);
-	
 	foreach ($erabiltzaile_guztiak as &$erabiltzaile_bakoitza) {
 		echo '<tr>					
 				<td><center>'.$erabiltzaile_bakoitza['nick'].'</center></td>';

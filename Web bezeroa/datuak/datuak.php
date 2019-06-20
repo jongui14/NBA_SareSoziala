@@ -16,7 +16,7 @@ function erabiltzailearen_nick($idErabiltzailea){
 			return  $erabiltzaile_bakoitza['nick'];
 		}
 	}
-	return ' ';
+	return 'Computer';
 }
 
 function Transakzioaren_Mezua($transakzioa){
